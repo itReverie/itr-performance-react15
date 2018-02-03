@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
 import ListCoins from './components/ListCoins';
-import Perf from 'react-addons-perf';
-window.Perf=Perf;
+import registerObserver from 'react-perf-devtool';
+
+const options = {
+  shouldLog: true,
+  port: 3000 // Port to which measures are to be logged
+}
+function callback(measures) {
+  // do something with these measures. Send to Googel Analytics Dashboard for further analysis ??
+  console.table(measures);
+}
+
+// Now pass options and callback to registerObserver hook 😄
+registerObserver(options, callback)
+
 class App extends Component {
-
-
-
 
 constructor(props) {
   super(props);
@@ -25,16 +34,11 @@ constructor(props) {
     }));
 }
 
-componentDidMount() {
-  Perf.start();
-  Perf.stop();
-  Perf.printWas
-}
   render() {
     return <div className="App">
         <header className="App-header">
           <h1 className="App-title">
-            Welcome to React Performance with React 15
+            Welcome to React Performance with React 16
           </h1>
         </header>
         <p className="App-intro" />

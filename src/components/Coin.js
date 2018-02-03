@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 
 export default class Coin extends Component{
 
-constructor(props){
-  super(props)
-}
     render(){
         return <button
         style={{backgroundColor:'#aaaaaa', margin:'20px', width:'100px', height:'50px'}}
