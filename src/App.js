@@ -1,40 +1,29 @@
 import React, { Component } from 'react';
 import './App.css';
 import './components/Common/Coin.css';
-import CoinDeleted from './components/Delete/CoinDeleted';
-import CoinColor from './components/Color/CoinColor';
+import CoinColor from "./components/Color/CoinColor";
 
 import Perf from 'react-addons-perf';
-
 //Expose tools on window object
 window.Perf=Perf;
 
-const coins= [{id:1, name:'A', color:'#a2a2a2', url:''},
-{id:2, name:'B', color:'#a2a2a2', url:''},
-{id:3, name:'C', color:'#a2a2a2', url:''},
-{id:4, name:'D', color:'#a2a2a2', url:''},
-{id:5, name:'E', color:'#a2a2a2', url:''}];
-
+const coins = [
+  { id: 1, name: "LiteCoin", url: "http://itreverie.com/images/LTC.svg" },
+  { id: 2, name: "Bitcoin", url: "http://itreverie.com/images/BTC.svg" },
+  { id: 3, name: "Zeit", url: "http://itreverie.com/images/ZEIT.svg" },
+  { id: 4, name: "D", url: "http://itreverie.com/images/BTC.svg" },
+  { id: 5, name: "E", url: "http://itreverie.com/images/BTC.svg" }
+];
 
 class App extends Component {
 
-constructor(props) {
-  super(props);
-       this.state = {coins: coins};
-}
-
-//<CoinDeleted coins={this.state.coins}/>
   render() {
-    return (<div>
+    return <div>
         <h1 className="App-title">
           Welcome to React Performance with React 15
         </h1>
-
-
-      <CoinDeleted coins={this.state.coins}/>
-      <CoinColor coins={this.state.coins}/>
-       </div>
-            )
+        <CoinColor coins={coins} />
+      </div>;
   }
 }
 

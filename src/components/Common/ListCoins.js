@@ -31,6 +31,7 @@ class ListCoins extends PureComponent{
       id ={coin.id}
       color ={this.props.color}
       name={coin.name}
+      url={coin.url}
       delete={this.delete}
       />}
     )}</div>);

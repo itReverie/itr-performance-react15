@@ -33,19 +33,18 @@ export default class Coin extends PureComponent{
       //   height:'50px'
       // });
 
-      const Button = styled.button`
+      const CoinBox = styled.div`
   width: 100px;
   margin: 20px;
-  height: 50px;
   background: papayawhip;
 `;
       //className="button-coin"
 //style={buttonCoin(this.props.color)}
 //style={{backgroundColor:'#aaaaaa', margin:'20px', width:'100px', height:'50px'}}
-        return <Button
-              onClick={this.handleDeleteClick}>
-                  {this.props.name}
-               </Button>
+        return <CoinBox>
+            <p>{this.props.name}</p>
+            <img src={this.props.url} alt={this.props.name} onClick={this.handleDeleteClick} style={{ width: "100px", height: "50px" }} />
+          </CoinBox>;
     }
 }
 
@@ -53,6 +52,7 @@ export default class Coin extends PureComponent{
 Coin.propTypes={
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
   delete: PropTypes.func.isRequired,
   color: PropTypes.string
 }
