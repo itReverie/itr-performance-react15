@@ -11,7 +11,6 @@ window.Perf=Perf;
 class App extends Component {
   
   render() {
-    console.log(coins);
     return <div>
          <h1 className="App-title">
           Welcome to React Performance with React 15
