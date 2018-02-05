@@ -13,8 +13,9 @@ class ListCoins extends Component{
      }
 
      delete(id){
+          // filter() method creates a new array with all elements that pass the test
            this.setState(prevState => ({
-               coins: prevState.coins.filter(el => el.id !== id )
+               coins: prevState.coins.filter(coin => coin.id !== id )
            }));
         }
 
@@ -23,12 +24,15 @@ class ListCoins extends Component{
   }
 
  render(){
-    return (<div>{this.state.coins.map(coin => <Coin
-      key={coin.id}
+    return (<div>{this.state.coins.map((coin, index) => {
+      const key= coin.id;
+      return <Coin
+      key ={coin.id}
       id={coin.id}
       name={coin.name}
       delete={this.delete}
-      />)}</div>);
+      />}
+    )}</div>);
  }
 }
 
