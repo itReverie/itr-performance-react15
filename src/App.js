@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import './components/Common/Coin.css';
 import {coinsData} from './data/Coins';
-import CoinColor from "./components/Color/CoinColor";
+import CoinManager from "./components/CoinManager";
 
 import Perf from 'react-addons-perf';
 //Expose tools on window object
@@ -6907,22 +6907,6 @@ const coins=[
     last_updated: 1508846963
   },
   {
-     id: 432,
-    key: "808coin",
-    name: "808Coin",
-    symbol: 808,
-    price_usd: 0.00102619,
-    price_btc: 1.8e-7,
-    
-    
-    
-    
-    
-    
-    
-    last_updated: 1508846952
-  },
-  {
      id: 433,
     key: "draftcoin",
     name: "DraftCoin",
@@ -7625,22 +7609,6 @@ const coins=[
     
     
     last_updated: 1508846960
-  },
-  {
-     id: 477,
-    key: "42-coin",
-    name: "42-coin",
-    symbol: 42,
-    price_usd: 10579,
-    price_btc: 1.85591,
-    
-    
-    
-    
-    
-    
-    
-    last_updated: 1508846941
   },
   {
      id: 478,
@@ -8795,22 +8763,6 @@ const coins=[
     last_updated: 1508846956
   },
   {
-     id: 550,
-    key: "300-token",
-    name: "300 Token",
-    symbol: 300,
-    price_usd: 182.405,
-    price_btc: 0.032,
-    
-    
-    
-    
-    
-    
-    
-    last_updated: 1508846961
-  },
-  {
      id: 551,
     key: "tristar-coin",
     name: "Tristar Coin",
@@ -9065,22 +9017,6 @@ const coins=[
     
     
     last_updated: 1508846963
-  },
-  {
-     id: 567,
-    key: "1337coin",
-    name: 1337,
-    symbol: 1337,
-    price_usd: 0.0000572864,
-    price_btc: 1e-8,
-    
-    
-    
-    
-    
-    
-    
-    last_updated: 1508846949
   },
   {
      id: 568,
@@ -11819,22 +11755,6 @@ const coins=[
     last_updated: 1508846949
   },
   {
-     id: 739,
-    key: "o2olondoncoin",
-    name: "020LondonCoin",
-    symbol: 20,
-    price_usd: 5.881e-7,
-    price_btc: 1e-10,
-    
-    
-    
-    
-    
-    
-    
-    last_updated: 1508846948
-  },
-  {
      id: 740,
     key: "coin2-1",
     name: "Coin2.1",
@@ -11929,22 +11849,6 @@ const coins=[
     
     
     last_updated: 1508846946
-  },
-  {
-     id: 746,
-    key: "octocoin",
-    name: "OctoCoin",
-    symbol: 888,
-    price_usd: 0.00166957,
-    price_btc: 2.9e-7,
-    
-    
-    
-    
-    
-    
-    
-    last_updated: 1508846943
   },
   {
      id: 747,
@@ -12329,22 +12233,6 @@ const coins=[
     
     
     last_updated: 1508846947
-  },
-  {
-     id: 771,
-    key: "sixeleven",
-    name: "SixEleven",
-    symbol: 611,
-    price_usd: 0.151929,
-    price_btc: 0.00002665,
-    
-    
-    
-    
-    
-    
-    
-    last_updated: 1508846957
   },
   {
      id: 772,
@@ -19116,24 +19004,14 @@ const coins=[
   }
 ];
 
-
-// const coins = [
-//   { id: 1, name: "LiteCoin", url: "http://itreverie.com/images/LTC.svg" },
-//   { id: 2, name: "Bitcoin", url: "http://itreverie.com/images/BTC.svg" },
-//   { id: 3, name: "Zeit", url: "http://itreverie.com/images/ZEIT.svg" },
-//   { id: 4, name: "D", url: "http://itreverie.com/images/BTC.svg" },
-//   { id: 5, name: "E", url: "http://itreverie.com/images/BTC.svg" }
-// ];
-
 class App extends Component {
  
   render() {
-    console.log(coinsData);
     return <div>
         <h1 className="App-title">
           Welcome to React Performance with React 15
         </h1>
-        <CoinColor coins={coins} />
+        <CoinManager coins={coins} />
       </div>;
   }
 }

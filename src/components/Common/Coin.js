@@ -1,15 +1,21 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 //import './Coin.css';
 //import shallowCompare from 'react-addons-shallow-compare';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 
 
-export default class Coin extends PureComponent{
+export default class Coin extends Component{
+
+static propTypes={
+  coin: PropTypes.object.isRequired,
+  delete: PropTypes.func.isRequired,
+  color: PropTypes.string
+}
+
 
   componentWillMount() {
-    //OK this.handleDeleteClick = this.handleDeleteClick.bind(this);
-    this.handleDeleteClick = this.props.delete.bind(this,this.props.id)
+    this.handleDeleteClick = this.props.delete.bind(this,this.props.coin.id)
   }
 
   //shouldComponentUpdate(nextProps, nextState){
@@ -25,34 +31,23 @@ export default class Coin extends PureComponent{
   //this.handleDeleteClick
 //onClick={this.props.delete.bind(this,this.props.id)}
     render(){
+              let buttonCoin = color => ({ backgroundColor: color, margin: "20px", width: "100px", height: "50px" });
 
-      // let buttonCoin  = (color) => ({
-      //   backgroundColor:color,
-      //   margin:'20px',
-      //   width:'100px',
-      //   height:'50px'
-      // });
+              // const CoinBox = styled.button.attrs({
+              //   background: props => props.color || "#aaaaaa"
+              // })`
+              //   width: 100px;
+              //   margin: 20px;
+              //   background: ${props => props.background};`;
 
-      const CoinBox = styled.div.attrs({ background: props => props.color || '#aaaaaa'})`
-                                        width: 100px;
-                                        margin: 20px;
-                                        background: ${props => props.background};`;
-      //className="button-coin"
-//style={buttonCoin(this.props.color)}
-//style={{backgroundColor:'#aaaaaa', margin:'20px', width:'100px', height:'50px'}}
-        return <CoinBox color={this.props.color}>
-            <p>{this.props.name}</p>
-            <img src={'../../images/SVG/'+this.props.name+'.svg'} alt={this.props.name} onClick={this.handleDeleteClick} style={{ width: "100px", height: "50px" }} />
-          </CoinBox>;
-    }
+              //className="button-coin"
+              //style={buttonCoin(this.props.color)}
+              //style={{backgroundColor:'#aaaaaa', margin:'20px', width:'100px', height:'50px'}}
+              //color={this.props.color} <CoinBox
+              return <button onClick={this.handleDeleteClick} style={buttonCoin(this.props.color)}>
+                  {this.props.coin.name}
+                </button>;
+            }
 }
 
 
-Coin.propTypes={
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  symbol: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
-  delete: PropTypes.func.isRequired,
-  color: PropTypes.string
-}
