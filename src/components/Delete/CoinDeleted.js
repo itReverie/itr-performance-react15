@@ -6,11 +6,6 @@ class CoinDeleted extends Component {
 
   render() {
     return <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">
-            Welcome to React Performance with React 15
-          </h1>
-        </header>
         <ListCoins  coins={this.props.coins}/>
       </div>;
   }

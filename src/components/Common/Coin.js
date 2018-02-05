@@ -1,31 +1,16 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import './Coin.css';
-import shallowCompare from 'react-addons-shallow-compare';
+//import './Coin.css';
+//import shallowCompare from 'react-addons-shallow-compare';
+import styled from 'styled-components';
 
-const buttonCoin ={
-  backgroundColor:'#aaaaaa',
-  margin:'20px',
-   width:'100px',
-    height:'50px'
-}
 
 export default class Coin extends PureComponent{
-
 
   componentWillMount() {
     //OK this.handleDeleteClick = this.handleDeleteClick.bind(this);
     this.handleDeleteClick = this.props.delete.bind(this,this.props.id)
   }
-
-
-  // handleDeleteClick(event) {
-  //   console.log(event);
-  //   console.log(this);
-  //   const targetKey = this.props.id;
-  //   this.props.delete.bind(this,targetKey)
-  //   //this.props.onDeleteClick(event, targetKey);
-  // }
 
   //shouldComponentUpdate(nextProps, nextState){
   //     //if we just pass FALSE it will render but does not allow us to interact as the component is not connected with the tree
@@ -40,10 +25,27 @@ export default class Coin extends PureComponent{
   //this.handleDeleteClick
 //onClick={this.props.delete.bind(this,this.props.id)}
     render(){
-        return <button style={buttonCoin}
-        onClick={this.handleDeleteClick}>
+
+      // let buttonCoin  = (color) => ({
+      //   backgroundColor:color,
+      //   margin:'20px',
+      //   width:'100px',
+      //   height:'50px'
+      // });
+
+      const Button = styled.button`
+  width: 100px;
+  margin: 20px;
+  height: 50px;
+  background: papayawhip;
+`;
+      //className="button-coin"
+//style={buttonCoin(this.props.color)}
+//style={{backgroundColor:'#aaaaaa', margin:'20px', width:'100px', height:'50px'}}
+        return <Button
+              onClick={this.handleDeleteClick}>
                   {this.props.name}
-               </button>
+               </Button>
     }
 }
 
@@ -51,5 +53,6 @@ export default class Coin extends PureComponent{
 Coin.propTypes={
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  delete: PropTypes.func.isRequired
+  delete: PropTypes.func.isRequired,
+  color: PropTypes.string
 }

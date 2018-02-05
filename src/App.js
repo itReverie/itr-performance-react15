@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import './components/Common/Coin.css';
 import CoinDeleted from './components/Delete/CoinDeleted';
+import CoinColor from './components/Color/CoinColor';
 
 import Perf from 'react-addons-perf';
 
@@ -21,9 +23,17 @@ constructor(props) {
        this.state = {coins: coins};
 }
 
-
+//<CoinDeleted coins={this.state.coins}/>
   render() {
-    return (<div><CoinDeleted coins={this.state.coins}/> </div>
+    return (<div>
+        <h1 className="App-title">
+          Welcome to React Performance with React 15
+        </h1>
+
+
+      <CoinDeleted coins={this.state.coins}/>
+      <CoinColor coins={this.state.coins}/>
+       </div>
             )
   }
 }

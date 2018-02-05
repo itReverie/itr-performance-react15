@@ -1,13 +1,14 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import Coin from "./Coin";
 import PropTypes from 'prop-types';
 
-class ListCoins extends Component{
+class ListCoins extends PureComponent{
 
   constructor(props){
         super(props);
         this.state = {
-          coins: this.props.coins
+          coins: this.props.coins,
+          color: this.props.color
         }
 
      }
@@ -25,10 +26,10 @@ class ListCoins extends Component{
 
  render(){
     return (<div>{this.state.coins.map((coin, index) => {
-      const key= coin.id;
       return <Coin
-      key ={coin.id}
-      id={coin.id}
+      key = {coin.id}
+      id ={coin.id}
+      color ={this.props.color}
       name={coin.name}
       delete={this.delete}
       />}
@@ -37,8 +38,8 @@ class ListCoins extends Component{
 }
 
 ListCoins.propTypes = {
-  coins: PropTypes.array.isRequired
-
+  coins: PropTypes.array.isRequired,
+  color: PropTypes.string,
 };
 
-  export default ListCoins;
+export default ListCoins;

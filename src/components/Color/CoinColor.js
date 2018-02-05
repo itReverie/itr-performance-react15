@@ -4,32 +4,30 @@ import ListCoins from '../Common/ListCoins';
 
 class CoinColor extends Component {
 
+  constructor(props){
+    super(props);
+    this.state= {color:'#ff80ff'}
+    this.onColorSelected = this.onColorSelected.bind(this);
+  }
+
   createSelectItems() {
-      let items = [<option key='pink' value='#ff66ff'>pink</option>,<option key='green' value='#33cc33'>green</option>];         
-      // for (let i = 0; i <= this.props.maxValue; i++) {
-      //      items.push();
-      //      //here I will be creating my options dynamically based on
-      //      //what props are currently passed to the parent component
-      // }
+      let items = [ <option key='pink' value='#ff80ff'>pink</option>,
+                    <option key='gray' value='#b3b3cc'>gray</option>,
+                  <option key='brown' value='#cc9966'>brown</option>];
       return items;
   }
 
- onDropdownSelected(e) {
-     console.log("THE VAL", e.target.value);
+ onColorSelected(e) {
      //here you will see the current selected value of the select input
+     this.setState({color:e.target.value});
  }
 
   render() {
     return <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">
-            Welcome to React Performance with React 15
-          </h1>
-        </header>
-        <Input type="select" onChange={this.onDropdownSelected} label="Color Select" multiple>
-       {this.createSelectItems()}
-  </Input>
-        <ListCoins  coins={this.props.coins}/>
+        <select type="select" onChange={this.onColorSelected} label="Color Select" >
+          {this.createSelectItems()}
+        </select>
+        <ListCoins coins={this.props.coins} color={this.state.color} colorChanged={this.onColorSelected}/>
       </div>;
   }
 }
