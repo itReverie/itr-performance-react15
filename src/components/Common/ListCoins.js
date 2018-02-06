@@ -10,7 +10,6 @@ class ListCoins extends Component{
           coins: this.props.coins,
           color: this.props.color
         }
-
      }
 
      delete(id){
@@ -19,10 +18,9 @@ class ListCoins extends Component{
                coins: prevState.coins.filter(coin => coin.id !== id )
            }));
         }
-
-  componentWillMount(){
-      this.delete = this.delete.bind(this);
-  }
+     componentWillMount(){
+       this.delete = this.delete.bind(this);
+      }
 
  render(){
     return (<div>{this.state.coins.map((coin, index) => {
