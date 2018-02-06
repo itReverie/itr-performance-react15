@@ -12,8 +12,8 @@ export default class CoinManager extends Component {
                  }
 
                  createSelectItems() {
-                   let items = [<option key="pink" value="#ff80ff"> Pink</option>, 
-                                <option key="gray" value="#b3b3cc"> Gray</option>, 
+                   let items = [<option key="gray" value="#b3b3cc"> Gray</option>,
+                                <option key="pink" value="#ff80ff"> Pink</option>,  
                                 <option key="brown" value="#cc9966"> Brown </option>];
                    return items;
                  }

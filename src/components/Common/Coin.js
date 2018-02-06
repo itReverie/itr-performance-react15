@@ -18,15 +18,15 @@ static propTypes={
     this.handleDeleteClick = this.props.delete.bind(this,this.props.coin.id)
   }
 
-  shouldComponentUpdate(nextProps, nextState){
+  //shouldComponentUpdate(nextProps, nextState){
   //     //if we just pass FALSE it will render but does not allow us to interact as the component is not connected with the tree
   //     return false;
   //     //If we pass TRUE it will rerender everytime our state and props change are updated.
   //     return true;
   //     //To solve the issue we should compare current and next props as well as current and previosu state
-       return ((this.state !== nextState) && (this.props !== nextProps));//(this.state !== nextState) || (this.props !== nextProps)
+  //     return ((this.state !== nextState) && (this.props !== nextProps));//(this.state !== nextState) || (this.props !== nextProps)
   //      return shallowCompare(this, nextProps, nextState);
-  }
+  //}
 
   //this.handleDeleteClick
 //onClick={this.props.delete.bind(this,this.props.id)}
